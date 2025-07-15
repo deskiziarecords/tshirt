@@ -31,6 +31,7 @@ const NavbarComp: React.FC<Props> = ({ editor, setEditor }) => {
           <div className="d-flex align-items-center me-4">
             <span className="text-muted me-2">Design Status:</span>
             <Badge bg={editor.selectedObjects.length > 0 ? "success" : "secondary"}>
+            <Badge variant={editor.selectedObjects.length > 0 ? "success" : "secondary"}>
               {editor.selectedObjects.length > 0 ? "Active" : "Ready"}
             </Badge>
           </div>

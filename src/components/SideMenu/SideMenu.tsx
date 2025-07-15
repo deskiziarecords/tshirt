@@ -98,9 +98,9 @@ const SideMenu: React.FC<Props> = ({ canvas, editor, setEditor }) => {
                     <Popover.Header className="popover-title">
                       {tool.popoverTitle}
                     </Popover.Header>
-                    <Popover.Body className="popover-content">
+                    <Popover.Content className="popover-content">
                       {tool.popoverContent}
-                    </Popover.Body>
+                    </Popover.Content>
                   </Popover>
                 }
               >
