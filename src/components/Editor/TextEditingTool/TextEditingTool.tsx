@@ -96,7 +96,7 @@ const TextEditingTool: React.FC<Props> = ({ editor, setEditor }) => {
         <div className="text-info">
           <small className="text-muted">
             <i className="fas fa-info-circle me-1"></i>
-            Editing text object. Click "Update" to apply changes.
+            Editing text object. Click "Update\" to apply changes.
           </small>
         </div>
       )}
