@@ -1,54 +1,74 @@
-import React from 'react';
-import {
-  Button,
-  ButtonGroup,
-} from "react-bootstrap";
-import {State} from "../../../data_type/interfaces";
-import { CanvasOrderDirection } from '../../../data_type/constants';
+import React from "react";
+import { Button, ButtonGroup } from "react-bootstrap";
+import { State } from "../../../data_type/interfaces";
+import { CanvasOrderDirection } from "../../../data_type/constants";
 
 interface Props {
-  // You can define props here if needed
   editor: State;
   setEditor: (editorState: Record<string, any>, callback?: () => void) => void;
 }
 
-const ObjectControlButtonsGroup: React.FC<Props> = ({editor, setEditor}) => {
-    // State example using the useState hook
-    // const handleOnChange = () => {}
-    
-    // };
+const ObjectControlButtonsGroup: React.FC<Props> = ({ editor, setEditor }) => {
+  const isDisabled = editor.selectedObjects.length === 0;
 
   return (
-    <>           
+    <div className="object-controls">
       <Button
         variant="danger"
-        disabled={editor.selectedObjects.length === 0}
+        size="sm"
+        disabled={isDisabled}
         onClick={() => {
           editor.canvasController.deleteObjects(editor.selectedObjects!);
-          setEditor({ selectedObjects: [] as fabric.Object[], textInput: "", editing: false });
+          setEditor({
+            selectedObjects: [] as fabric.Object[],
+            textInput: "",
+            editing: false,
+          });
         }}
+        className="btn-professional btn-danger-professional"
       >
-        <i className="fas fa-trash msr-1"></i>
-        Delete Selected
+        <i className="fas fa-trash me-1"></i>
+        Delete
       </Button>
-      <ButtonGroup aria-label="change object order" className="ml-2">
-        {Object.keys(CanvasOrderDirection).map((direction) => (
+
+      <ButtonGroup size="sm" className="flex-wrap">
+        {Object.entries(CanvasOrderDirection).map(([key, direction]) => (
           <Button
             key={direction}
-            variant="warning"
-            disabled={editor.selectedObjects.length === 0}
+            variant="outline-secondary"
+            disabled={isDisabled}
             onClick={() =>
               editor.canvasController.changeObjectOrder(
                 editor.selectedObjects,
                 direction
               )
             }
+            title={`Move ${direction}`}
+            className="btn-sm"
           >
-            {direction}
+            <i
+              className={`fas fa-arrow-${
+                direction === "front"
+                  ? "up"
+                  : direction === "back"
+                  ? "down"
+                  : direction === "forwards"
+                  ? "up"
+                  : "down"
+              }`}
+            ></i>
           </Button>
         ))}
       </ButtonGroup>
-    </>
+
+      {editor.selectedObjects.length > 0 && (
+        <div className="mt-2">
+          <small className="text-muted">
+            {editor.selectedObjects.length} object(s) selected
+          </small>
+        </div>
+      )}
+    </div>
   );
 };
 

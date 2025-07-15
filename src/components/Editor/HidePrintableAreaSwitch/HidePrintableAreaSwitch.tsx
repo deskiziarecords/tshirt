@@ -1,45 +1,37 @@
-import React from 'react';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import { Form } from "react-bootstrap";
 import { State } from "../../../data_type/interfaces";
 
 interface Props {
-    // You can define props here if needed
-    editor: State;
-    setEditor: (editorState: Record<string, any>, callback?: () => void) => void;
-};
+  editor: State;
+  setEditor: (editorState: Record<string, any>, callback?: () => void) => void;
+}
 
-const MySwitchComponent: React.FC<Props> = ({editor, setEditor}) => {
-  //const [isChecked, setChecked] = useState(false);
-
-  const handleSwitchChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-    // setChecked(!isChecked);
-        const checked = e.currentTarget.checked;
-        editor.canvasController.togglePrintableArea(checked)
-        setEditor({isEditableAreaInvisible: checked})            
+const HidePrintableAreaSwitch: React.FC<Props> = ({ editor, setEditor }) => {
+  const handleSwitchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const checked = e.currentTarget.checked;
+    editor.canvasController.togglePrintableArea(checked);
+    setEditor({ isEditableAreaInvisible: checked });
   };
 
   return (
-    <Form>
-    <Form.Check 
-        type="switch" 
-        id="myCheckbox" 
-        label="Hide Printable Area"
+    <div className="d-flex align-items-center">
+      <Form.Check
+        type="switch"
+        id="printable-area-switch"
+        label="Hide Print Area"
         checked={editor.isEditableAreaInvisible}
         onChange={handleSwitchChange}
+        className="mb-0"
       />
-    </Form>
+      <div className="ms-2">
+        <small className="text-muted">
+          <i className="fas fa-eye-slash me-1"></i>
+          Toggle print boundaries
+        </small>
+      </div>
+    </div>
   );
 };
 
-export default MySwitchComponent;
-
-                //   <Form>
-                //     <Form.Check 
-                //       type="switch" 
-                //       id="myCheckbox" 
-                //       label="Hide Printable Area"
-                //       onChange={
-                        
-                //       }
-                //       />
-                //   </Form>
+export default HidePrintableAreaSwitch;
