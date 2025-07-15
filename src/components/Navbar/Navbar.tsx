@@ -53,3 +53,5 @@ const NavbarComp: React.FC<Props> = ({ editor, setEditor }) => {
 };
 
 export default NavbarComp;
+  )
+}
