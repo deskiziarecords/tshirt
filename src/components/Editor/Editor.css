@@ -1,207 +1,49 @@
+/* .dropdown-button {
+	background-color: red !important;
+	box-shadow: none !important;
+}
+
+.dropdown-font-family {
+	box-shadow: none !important;
+}
+
+.dropdown-icon {
+	box-shadow: none !important;
+}
+
+.expanded {
+	box-shadow: none !important;
+} */
 .main-body {
-  margin: 0px;
-  min-height: calc(100vh - 80px);
-  background: #f8f9fa;
+	margin: 0px;
 }
 
 .dropdown-menu {
-  height: 200px;
-  overflow-y: scroll;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	height: 200px;
+	overflow-y: scroll;
 }
 
 .main-body {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
+	display: flex;
 }
 
 .side-menu-container {
-  width: 80px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px 10px;
-  height: fit-content;
-  position: sticky;
-  top: 20px;
+	position: inherit;
+	height: 100vh;
+	width: 100px;
+	/* background-color: #f8f9fa; */
+	/* background-color: #eee; */
+	padding: 0px;
+	/* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); */
+	overflow-y: auto;
+	min-width: 100px;
 }
 
 .properties-menu-container {
-  width: 350px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  height: fit-content;
-  position: sticky;
-  top: 20px;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-}
-
-.properties-menu-container h5 {
-  color: #495057;
-  font-weight: 600;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #e9ecef;
+	flex: 1;
+	padding: 15px 0px 0px 15px;
 }
 
 .editor-container {
-  flex: 1;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.canvas-wrapper {
-  position: relative;
-  display: inline-block;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.canvas-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.design-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #e9ecef;
-  width: 100%;
-  max-width: 600px;
-  justify-content: center;
-}
-
-.property-section {
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #f1f3f4;
-}
-
-.property-section:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.property-section h6 {
-  color: #6c757d;
-  font-weight: 600;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-}
-
-.color-picker-wrapper {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.texture-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.texture-item {
-  aspect-ratio: 1;
-  border-radius: 6px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  border: 2px solid transparent;
-}
-
-.texture-item:hover {
-  transform: scale(1.05);
-  border-color: #007bff;
-}
-
-.object-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.object-controls .btn {
-  flex: 1;
-  min-width: 80px;
-}
-
-/* Professional form controls */
-.form-control-professional {
-  border-radius: 8px;
-  border: 2px solid #e9ecef;
-  padding: 12px 16px;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.form-control-professional:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.input-group-professional {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive design */
-@media (max-width: 1200px) {
-  .properties-menu-container {
-    width: 300px;
-  }
-}
-
-@media (max-width: 992px) {
-  .main-body {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .side-menu-container,
-  .properties-menu-container {
-    width: 100%;
-    position: static;
-  }
-  
-  .properties-menu-container {
-    max-height: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-body {
-    padding: 15px;
-  }
-  
-  .design-actions {
-    flex-direction: column;
-  }
-  
-  .canvas-controls {
-    flex-direction: column;
-    gap: 10px;
-  }
+	padding: 15px;
 }

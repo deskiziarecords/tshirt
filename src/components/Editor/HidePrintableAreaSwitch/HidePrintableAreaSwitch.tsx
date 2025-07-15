@@ -1,37 +1,45 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React from 'react';
+import { Form } from 'react-bootstrap';
 import { State } from "../../../data_type/interfaces";
 
 interface Props {
-  editor: State;
-  setEditor: (editorState: Record<string, any>, callback?: () => void) => void;
-}
+    // You can define props here if needed
+    editor: State;
+    setEditor: (editorState: Record<string, any>, callback?: () => void) => void;
+};
 
-const HidePrintableAreaSwitch: React.FC<Props> = ({ editor, setEditor }) => {
-  const handleSwitchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const checked = e.currentTarget.checked;
-    editor.canvasController.togglePrintableArea(checked);
-    setEditor({ isEditableAreaInvisible: checked });
+const MySwitchComponent: React.FC<Props> = ({editor, setEditor}) => {
+  //const [isChecked, setChecked] = useState(false);
+
+  const handleSwitchChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    // setChecked(!isChecked);
+        const checked = e.currentTarget.checked;
+        editor.canvasController.togglePrintableArea(checked)
+        setEditor({isEditableAreaInvisible: checked})            
   };
 
   return (
-    <div className="d-flex align-items-center">
-      <Form.Check
-        type="switch"
-        id="printable-area-switch"
-        label="Hide Print Area"
+    <Form>
+    <Form.Check 
+        type="switch" 
+        id="myCheckbox" 
+        label="Hide Printable Area"
         checked={editor.isEditableAreaInvisible}
         onChange={handleSwitchChange}
-        className="mb-0"
       />
-      <div className="ms-2">
-        <small className="text-muted">
-          <i className="fas fa-eye-slash me-1"></i>
-          Toggle print boundaries
-        </small>
-      </div>
-    </div>
+    </Form>
   );
 };
 
-export default HidePrintableAreaSwitch;
+export default MySwitchComponent;
+
+                //   <Form>
+                //     <Form.Check 
+                //       type="switch" 
+                //       id="myCheckbox" 
+                //       label="Hide Printable Area"
+                //       onChange={
+                        
+                //       }
+                //       />
+                //   </Form>
